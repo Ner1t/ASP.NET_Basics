@@ -1,0 +1,51 @@
+﻿@using Entities;
+
+@model Reward
+
+
+@{
+    Layout = null;
+
+    var currentReward = Model;
+    if (currentReward == null)
+    {
+        currentReward = new Reward();
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <title>Reward Editing</title>
+</head>
+<body>
+    <form asp-action="RewardEdit">
+
+
+        <div class="addRewardBody">
+            <div class="contentRow">
+                <div class="fieldName">
+                    Reward title
+                </div>
+                <div class="inputField">
+                    <input class="inputField" asp-for="Title" />
+                </div>
+            </div>
+            <div class="contentRow">
+                <div class="fieldName">
+                    Award description
+                </div>
+                <div class="inputField">
+                    <input class="inputField" asp-for="Description" />
+                </div>
+            </div>
+            <div class="controlButtonsArea">
+                <button type="submit">Create</button>
+                <button>@Html.ActionLink("Cancel", "PageRewards", "Rewards")</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

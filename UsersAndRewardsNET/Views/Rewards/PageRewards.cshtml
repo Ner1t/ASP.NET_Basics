@@ -1,0 +1,84 @@
+﻿
+@model IList<Entities.Reward>
+
+
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<head>
+
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Users and rewards</title>
+</head>
+<body>
+    <div class="usersAndRewardsBody">
+        <div class="header">
+            <ul class="top-level-menu">
+                <li>
+                    <a href="#">Menu</a>
+                    <ul class="second-level-menu">
+
+                        <li> @Html.ActionLink("New Reward", "CreateReward", "Rewards") </li>
+
+                        <li><a href="#">Exit</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="tabs">
+                <input type="radio" name="inset" value="" id="tab_1">
+
+                <label for="tab_1">@Html.ActionLink("Users", "PageUsers", "Users")</label>
+
+                <input type="radio" name="inset" value="" id="tab_2" checked>
+                <label for="tab_2">Rewards</label>
+
+                <div id="txt_1">
+                    <table>
+                    </table>
+                </div>
+                <div id="txt_2">
+                    <table>
+                        <tr>
+                            <th>Control buttons</th>
+                            <th>id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+
+                        @foreach (var reward in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Edit", "RewardEdit", "Rewards", new { id = @reward.Id })
+
+                                    @Html.ActionLink("Delete", "Delete", "Rewards", new { id = @reward.Id })
+                                    @*<a asp-controller="UsersRewards" asp-action="Delete" asp-route=" ">*@
+
+                                </td>
+
+                                <td>
+                                    @reward.Id
+                                </td>
+                                <td>
+                                    @reward.Title
+                                </td>
+                                <td>
+                                    @reward.Description
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+

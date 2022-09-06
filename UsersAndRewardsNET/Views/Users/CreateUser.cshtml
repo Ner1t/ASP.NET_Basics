@@ -1,0 +1,62 @@
+﻿
+@using Entities;
+
+@model User
+
+
+@{
+    Layout = null;
+
+    var currentUser = Model;
+    if (currentUser == null)
+    {
+        currentUser = new User();
+    }
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <title>Creating a new user</title>
+</head>
+<body>
+    <form asp-action="CreateUser">
+        <div class="addUserBody">
+            <div class="contentRow">
+                <div class="fieldName">
+                    First name
+                </div>
+                <div class="inputField">
+                    <input asp-for="FirstName" />
+                </div>
+            </div>
+            <div class="contentRow">
+                <div class="fieldName">
+                    Last name
+                </div>
+                <div class="inputField">
+                    <input asp-for="LastName" />
+                </div>
+            </div>
+            <div class="contentRow">
+                <div class="fieldName">
+                    Birth date
+                </div>
+                <div class="inputField">
+                    <input asp-for="BirthDate" />
+                </div>
+            </div>
+       
+
+        <div class="controlButtonsArea">
+            <button type="submit"> Create</button>
+            <button> @Html.ActionLink("Cancel", "PageUsers", "Users")</button>
+        </div>
+        </div>
+    </form>
+</body>
+</html>
+

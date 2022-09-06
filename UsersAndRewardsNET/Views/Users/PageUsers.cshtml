@@ -1,0 +1,97 @@
+﻿@model IList<Entities.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Users and rewards</title>
+</head>
+<body>
+    <div class="usersAndRewardsBody">
+        <div class="header">
+            <ul class="top-level-menu">
+                <li>
+                    <a href="#">Menu</a>
+                    <ul class="second-level-menu">
+
+                        <li>@Html.ActionLink("New User ", "CreateUser", "Users")</li>
+
+                        <li>
+                            <a href="#">Exit</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="tabs">
+                <input type="radio" name="inset" value="" id="tab_1" checked>
+                <label for="tab_1">Users</label>
+
+                <input type="radio" name="inset" value="" id="tab_2">
+
+                <label for="tab_2">@Html.ActionLink("Rewards", "PageRewards", "Rewards")</label>
+
+                <div id="txt_1">
+                    <table>
+
+                        <tr>
+                            <th>Control buttons</th>
+                            <th>id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Birth Date</th>
+                            <th>Rewards</th>
+                        </tr>
+
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Edit", "UserEdit", "Users", new { id = @user.Id })
+
+                                    @Html.ActionLink("Delete", "Delete", "Users", new { id = @user.Id })
+
+                                    @*<a asp-controller="UsersRewards" asp-action="DeleteUser" asp-route-id="user.Id"> Delete </a>*@
+
+                                </td>
+
+                                <td>
+                                    @user.Id
+                                </td>
+
+                                <td>
+                                    @user.FirstName
+                                </td>
+                                <td>
+                                    @user.LastName
+                                </td>
+                                <td>
+                                    @user.BirthDate.ToShortDateString()
+                                </td>
+                                <td>
+                                    @user.Rewards
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div id="txt_2">
+                    <table>
+                        <tr>
+                            <th>id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

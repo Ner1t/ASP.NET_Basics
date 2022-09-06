@@ -1,0 +1,85 @@
+﻿@using Entities;
+
+@model UserView
+
+
+@{
+    Layout = null;
+
+    var currentUser = Model;
+    if (currentUser == null)
+    {
+        currentUser = new UserView();
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <title>User editing</title>
+</head>
+<body>
+    <form asp-action="UserEdit">
+        <div class="addUserBody">
+            <div class="contentRow">
+                <div class="fieldName">
+                    First name
+                </div>
+                <div class="inputField">
+
+                    <input asp-for="FirstName" />
+
+                </div>
+            </div>
+            <div class="contentRow">
+                <div class="fieldName">
+                    Last name
+                </div>
+                <div class="inputField">
+
+                    <input asp-for="LastName" />
+
+                </div>
+            </div>
+            <div class="contentRow">
+                <div class="fieldName">
+                    Birth date
+                </div>
+                <div class="inputField">
+
+                    <input asp-for="BirthDate" type="date" />
+
+                </div>
+            </div>
+
+            <tb>
+                <p><b>Add or withdraw a reward</b></p>
+
+                @for (var i = 0; i < currentUser.AvailableRewards.Count; i++)
+                {
+
+                    var r = Model.AvailableRewards[i];
+
+                    <div>
+                        <label>@r.Title</label>
+                    </div>
+                        <input type="number" name="AvailableRewards[@i].Id" style="display: none;" value="@r.Id" />
+
+                        @Html.EditorFor(m => m.AvailableRewards[i].Checked)
+
+
+                        }
+
+                </tb>
+
+            <button type="submit"> OK </button>
+
+            <button> @Html.ActionLink("Cancel", "PageUsers", "Users")</button>
+
+        </div>
+    </form>
+</body>
+</html>

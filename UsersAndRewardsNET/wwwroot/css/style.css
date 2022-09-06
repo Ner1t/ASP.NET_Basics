@@ -1,0 +1,209 @@
+
+
+.addUserBody {
+    border: solid 2px yellowgreen;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 350px;
+    height: 600px;
+}
+
+
+
+.addRewardBody {
+    border: solid 2px yellowgreen;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 350px;
+    height: 200px;
+}
+
+.contentRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fieldName {
+}
+
+inputFieldRewards {
+    border: solid 2px yellowgreen;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 350px;
+    height: 200px;
+}
+
+
+
+.controlButtonsArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*Users and Rewards*/
+
+.usersAndRewardsBody > .header {
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    border: solid 2px yellowgreen;
+}
+
+.usersAndRewardsBody > .content {
+    margin-top: 10px;
+    padding: 5px;
+    border: solid 2px yellowgreen;
+}
+
+
+
+
+/* menu*/
+
+.third-level-menu {
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+    list-style: none;
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .third-level-menu > li {
+        background: #999999;
+    }
+
+        .third-level-menu > li:hover {
+            background: #CCCCCC;
+        }
+
+.second-level-menu {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    display: none;
+    list-style: none;
+}
+
+    .second-level-menu > li {
+        position: relative;
+        height: 30px;
+        background: #999999;
+    }
+
+        .second-level-menu > li:hover {
+            background: #CCCCCC;
+        }
+
+.top-level-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .top-level-menu > li {
+        position: relative;
+        float: left;
+        height: 30px;
+        width: 123px;
+        background: #999999;
+    }
+
+        .top-level-menu > li:hover {
+            background: #CCCCCC;
+        }
+
+    .top-level-menu li:hover > ul {
+        display: inline-block;
+    }
+
+
+    /* Menu Link */
+
+    .top-level-menu a {
+        font: bold 14px Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 0 0 0 10px;
+        display: inherit;
+        line-height: 30px;
+    }
+
+        .top-level-menu a:hover {
+            color: #000000;
+        }
+
+/*  tabs */
+
+.tabs {
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+    display: inherit;
+}
+
+
+
+
+    .tabs > input {
+        display: none;
+    }
+
+    .tabs > div {
+        display: none;
+        padding: 12px;
+        border: 1px solid #999999;
+        background: #FFFFFF;
+    }
+
+    .tabs > label {
+        display: inline-block;
+        padding: 7px;
+        margin: 0 -5px -1px 0;
+        text-align: center;
+        color: #666666;
+        border: 1px solid #999999;
+        background: #E0E0E0;
+        cursor: pointer;
+    }
+
+    .tabs > input:checked + label {
+        color: #000000;
+        border: 1px solid #999999;
+        border-bottom: 1px solid #FFFFFF;
+        background: #FFFFFF;
+    }
+
+#tab_1:checked ~ #txt_1,
+#tab_2:checked ~ #txt_2,
+#tab_3:checked ~ #txt_3,
+#tab_4:checked ~ #txt_4 {
+    display: block;
+}
+
+/*  table  */
+
+table {
+    width: 100%;
+}
+
+
+    table th, td {
+        border: 1px solid #666666;
+        color: #666666;
+    }
